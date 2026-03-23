@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokémon TCG Browser</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Pokémon TCG Card Browser</h1>
+    <p>Search cards with name, set code, supertype, or rarity. Live results from the Pokémon TCG API.</p>
+
+    <form id="search-form" class="search-form" aria-label="Search cards">
+      <input type="search" id="search-input" placeholder="Search cards (e.g. Pikachu, Charizard)" autocomplete="off" />
+      <button type="submit">Search</button>
+      <button type="button" id="reset-btn" class="secondary">Reset</button>
+    </form>
+
+    <div class="info-bar">
+      <span id="status">Type and hit Search to begin. You can load many cards now.</span>
+      <span id="count"></span>
+    </div>
+
+    <div class="pagination" role="navigation" aria-label="Pagination">
+      <button id="prev-page" disabled>Previous</button>
+      <span id="page-indicator">Page 1</span>
+      <button id="next-page" disabled>Next</button>
+      <button id="load-more" class="secondary">Load more cards (+20)</button>
+      <button id="load-200" class="secondary">Load 200 more cards</button>
+      <button id="load-all" class="secondary">Load all cards</button>
+    </div>
+
+    <section id="card-grid" class="card-grid" aria-live="polite"></section>
+
+    <div id="card-modal" class="card-modal" aria-hidden="true">
+      <div class="card-modal-backdrop"></div>
+      <div class="card-modal-content" role="dialog" aria-modal="true" aria-label="Card image preview">
+        <button id="modal-close" class="modal-close" aria-label="Close preview">X</button>
+        <img id="modal-image" src="" alt="" />
+        <p id="modal-title"></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
